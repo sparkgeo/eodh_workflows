@@ -1,0 +1,102 @@
+[
+    {
+        "title": "Land Surface Temperature (LST) - Day",
+        "description": "This workflow provides daytime land surface temperature observations for the specified assets.",
+        "constraints": {
+            "supported_assets": [
+                "points"
+            ],
+            "required_columns": [
+                "ID",
+                "latitude",
+                "longitude"
+            ]
+        },
+        "preset_inputs": {
+            "workflow": "lst-filter",
+            "stac_catalog": "https://test.eodatahub.org.uk/api/catalogue/stac/catalogs/user-datasets/sparkgeouser/processing-results/cat_f99e920a-a58e-11ef-aab0-7a33b70d8782",
+            "stac_collection": "col_f99e920a-a58e-11ef-aab0-7a33b70d8782",
+            "stac_query": "{'day_night': 'DAY'}"
+        },
+        "user_inputs": {
+            "assets": {
+                "type": "file",
+                "file_type": "geojson",
+                "label": "Upload your asset GeoJSON file"
+            },
+            "start_date": {
+                "label": "Select the start date",
+                "type": "date",
+                "default": "2024-01-01"
+            },
+            "end_date": {
+                "label": "Select the end date",
+                "type": "date",
+                "default": "2024-01-10"
+            }
+        }
+    },
+    {
+        "title": "Land Surface Temperature (LST) - Night",
+        "description": "This workflow provides nighttime land surface temperature observations for the specified assets.",
+        "constraints": {
+            "supported_assets": [
+                "points"
+            ],
+            "required_columns": [
+                "ID",
+                "latitude",
+                "longitude"
+            ]
+        },
+        "preset_inputs": {
+            "workflow": "lst-filter",
+            "stac_catalog": "https://test.eodatahub.org.uk/api/catalogue/stac/catalogs/user-datasets/sparkgeouser/processing-results/cat_f99e920a-a58e-11ef-aab0-7a33b70d8782",
+            "stac_collection": "col_f99e920a-a58e-11ef-aab0-7a33b70d8782",
+            "stac_query": "{'day_night': 'NIGHT'}"
+        },
+        "user_inputs": {
+            "assets": {
+                "type": "file",
+                "file_type": "geojson",
+                "label": "Upload your asset GeoJSON file"
+            },
+            "start_date": {
+                "label": "Select the start date",
+                "type": "date",
+                "default": "2024-01-01"
+            },
+            "end_date": {
+                "label": "Select the end date",
+                "type": "date",
+                "default": "2024-01-10"
+            }
+        }
+    },
+    {
+        "title": "OS Climate Physical Risk",
+        "description": "This workflow assesses the physical risks of climate change, including chronic heat and inundation, for the specified asset portfolio.",
+        "constraints": {
+            "supported_assets": [
+                "points"
+            ],
+            "required_columns": [
+                "ID",
+                "latitude",
+                "longitude",
+                "asset_type",
+                "location"
+            ]
+        },
+        "preset_inputs": {
+            "workflow": "physrisk-filter"
+        },
+        "user_inputs": {
+            "assets": {
+                "type": "file",
+                "file_type": "geojson",
+                "label": "Upload your asset GeoJSON file"
+            }
+        }
+    }
+]
